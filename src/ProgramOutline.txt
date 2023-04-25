@@ -1,0 +1,21 @@
+# This is the start of the PyBuild Project
+
+# Program:
+# 1. Get shell/os (bash or powershell) [Done]
+# - sys.platform.startswith('linux' or 'win32')
+
+# 2. Get compiler (gcc g++, msvc c++, or kotlinc) [X]
+# - Ask user directly: Type either gcc, msvc, or kotlin
+# - Or use argv to get command-line arguments
+
+# 3. Get src directory [DONE]
+# - Tell user directly: To build, enter the path to folder/directory where
+#   your source files are
+# - Or use argv to get command-line arguments
+
+# 4. Generate command to compile and link all source files and libraries in src [1/3]
+
+# 5. Look for static or dynamic library creation option [X]
+# 6. If YES, then compile src and turn src into a static or dynamic library
+#    If NO, then don't
+
