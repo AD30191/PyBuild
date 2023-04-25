@@ -1,6 +1,6 @@
 import os
 
-# A shortcut to the Developer Command Prompt for runnings msvc C++ tools on the command line
+# A shortcut to the Developer Command Prompt for runnings msvc C++ tools on the command line.
 # Was initially going to do this along with the build process but had no idea how to return control to the script
 # after the prompt was opened.
 
