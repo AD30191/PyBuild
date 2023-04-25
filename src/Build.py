@@ -10,6 +10,9 @@ import sys
 # production / commercial setting. There are many, many other great build tools for
 # those purposes.
 
+# P.S. I realize I could refactor a bunch of functions (and the code therein) out of this main fuction 
+# and then actually be able to unit-test them but I have a bunch of other projects I want to get to :P.
+
 
 def main():
     # I'm using compiler as a catch-all term
@@ -43,17 +46,7 @@ def main():
     elif operating_system == "":
         exit("Invalid operating system use windows or linux to run this script.")
 
-    # Get language to be compiled and linked - I would've based everything off of this
-    # choice; however, this script doesn't allow gcc compiling on windows for the
-    # moment. So, I just used this for setting the kotlin compiler and set
-    # the C++ compilers automatically based on OS
-    language = input("Choose language to build: C++[0] or Kotlin[1]: ")
-
-    # Set compiler to kotlin if language chosen was kotlin
-    if language == 1:
-        kotlin_compiler = "kotlinc"
-
-    #
+    # Self-explanatory
     app_or_lib = input("Build an application[0] or library[1]: ")
 
     # Get src directory
@@ -101,15 +94,17 @@ def main():
         print(formatted_files)
         print("OK")
 
-    #
+    # Generate command to compile and link depending on compiler
     if msvc_compiler == "msvc" and app_or_lib == 0:
         # Generate command to compile and link src directory for Windows msvc
         os.system("cl /W4 /EHsc " + formatted_files + " /link /out:app.exe")
         print("OK")
     elif gcc_compiler == "gcc":
+        # This command needs MAJOR testing
         # Generate command to compile and link src directory for linux gcc g++
         os.system("g++ -c " + formatted_s_files)
-
+        
+        # .o files only available after compilation has occurred... so I put them in a string right after they become available
         for file in os.listdir(directory):
             if re.search(".o", file) is not None:
                 formatted_o_files = formatted_o_files + file
