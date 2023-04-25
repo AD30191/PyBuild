@@ -13,6 +13,8 @@ import sys
 # P.S. I realize I could refactor a bunch of functions (and the code therein) out of this main fuction 
 # and then actually be able to unit-test them but I have a bunch of other projects I want to get to :P.
 
+# P.S.2. No testing at the moment has been done for this script on a Linux environment. So, it likely doesn't work on Linux.
+
 
 def main():
     # I'm using compiler as a catch-all term
