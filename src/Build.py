@@ -72,7 +72,6 @@ def main():
     elif gcc_compiler == "gcc":
         # gcc on linux variant
         # Put files at directory into string formatted correctly
-        # TODO: Put in proper library extension so that libraries can be built with app
         for file in os.listdir(directory):
             if re.search(".cpp", file) is not None:
                 formatted_s_files = formatted_s_files + file
